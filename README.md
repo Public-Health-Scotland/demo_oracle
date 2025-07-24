@@ -20,18 +20,24 @@ pip install --upgrade pip wheel
 
 pip install -r requirements.txt
 
-5. You need to create a .env file. It will contain the following info:
+5. You need to create a .env file (environment variables). It will contain the following info:
+<span style="color:red">Caution:</span> Do not store your credentials in plain text or as part of your code (hardcoded).
 
 ```
 ORACLE_USER=your_user_name
 ORACLE_PASSWORD=your_password
 ORACLE_DSN=your_dns_url
 ```
+6. Ensure your .env file. Run this code to change permissions (it will be readable only for you):
 
-6. Run in terminal for quick test (you will see a table in terminal):
+chmod 600 .env
+
+7. Run in terminal for quick test (you will see a table in terminal):
+
 python demo.py
 
-7. the file my_db.py contains a class which will connect to Oracle. It will be used in your jupyter notebook e.g. my_jupyter.ipynb
+8. the file my_db.py contains a class which will connect to Oracle. It will be used in your 
+jupyter notebook e.g. my_jupyter.ipynb
 
 # References
 
