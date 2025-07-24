@@ -22,7 +22,7 @@ pip install -r requirements.txt
 ```
 5. You need to create a .env file (environment variables). It will contain the following info:
 
-<span style="color:red">Caution:</span> Do not store your credentials in plain text or as part of your code (hardcoded).
+🔴**Caution**: *Do not store your credentials in plain text or as part of your code (hardcoded).*
 
 ```
 ORACLE_USER=your_user_name
