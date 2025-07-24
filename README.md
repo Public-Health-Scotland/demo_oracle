@@ -22,9 +22,11 @@ pip install -r requirements.txt
 
 5. You need to create a .env file. It will contain the following info:
 
+```
 ORACLE_USER=your_user_name
 ORACLE_PASSWORD=your_password
 ORACLE_DSN=SMRA.nss.scot.nhs.uk
+```
 
 6. Run in terminal for quick test (you will see a table in terminal):
 python demo.py
