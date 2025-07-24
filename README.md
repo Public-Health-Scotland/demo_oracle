@@ -25,7 +25,7 @@ pip install -r requirements.txt
 ```
 ORACLE_USER=your_user_name
 ORACLE_PASSWORD=your_password
-ORACLE_DSN=SMRA.nss.scot.nhs.uk
+ORACLE_DSN=your_dns_url
 ```
 
 6. Run in terminal for quick test (you will see a table in terminal):

@@ -19,7 +19,7 @@ query = "SELECT LASTNAME, EMAIL FROM ldap_users"
 
 # Load the result into a DataFrame
 cursor = connection.cursor()
-cursor.execute("SELECT LASTNAME, EMAIL FROM ldap_users")
+cursor.execute(query)
 # for row in cursor:
 #     print(row)
 
