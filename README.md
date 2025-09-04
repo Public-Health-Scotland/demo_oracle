@@ -54,8 +54,8 @@ chmod 600 .env
 ```
 python demo.py
 ```
-9. The file my_db.py contains a Python class that which facilitates the connection to Oracle and retrieves data in a pandas dataframe. It will be used in your 
-jupyter notebook e.g. my_jupyter.
+
+The script my_db.py contains a Python class that which facilitates the connection to Oracle and retrieves data in a pandas dataframe. Call my_oracle_object.query_to_df to get a pandas dataframe.
 
 # References
 
