@@ -1,8 +1,8 @@
 This repo will allow you to connect to an Oracle database at PHS using VSCode. Oracle is used for databases such as SMRA.
+Clone this repo in order to have the required files in your VSCode environment.
 
 # Prepare your VScode
 If you have never used VSCode, check the link under references on how to prepare it.
-0.Clone this repo in order to have the required files in your VSCode environment.
 
 1. Run the bash script from the terminal (only the first time you use VSCode)
 ```
@@ -27,14 +27,19 @@ pip install --upgrade pip wheel
 ```
 pip install -r requirements.txt
 ```
-5. You need to create a .env file (environment variables). VSCode has an icon to create files at the top of the list of folders: ![icon](image.png) 
+5. Create a .env file (environment variables)
+```
+touch .env
+```
+Alternatively, VSCode has an icon to create files at the top of the list of folders: ![icon](image.png) 
 
-6. Run the following to save your username, password and DSN into the .env file. -??
+6. Run the following to save your username, password and DSN into the .env file. 
 
 🔴**Caution**: *Do not store your credentials in plain text or as part of your code (hardcoded).*
 
 Note: for SMRA, the DSN URL is SMRA.nss.scot.nhs.uk.
-You can find the DSN URL by connecting to the database on R and checking the SVC variable under Connections: ![dsn url](image-1.png)
+You can find the DSN URL by connecting to the database on R and checking the SVC variable under Connections: 
+![dsn url](image-1.png)
 
 ```
 ORACLE_USER=your_user_name
@@ -49,7 +54,7 @@ chmod 600 .env
 ```
 python demo.py
 ```
-9. The file my_db.py contains a class which will connect to Oracle. It will be used in your 
+9. The file my_db.py contains a Python class that which facilitates the connection to Oracle and retrieves data in a pandas dataframe. It will be used in your 
 jupyter notebook e.g. my_jupyter.
 
 # References
