@@ -11,7 +11,7 @@ class MyOracleDB:
         self.user = os.getenv("ORACLE_USER")
         self.password = os.getenv("ORACLE_PASSWORD")
         self.dsn = os.getenv("ORACLE_DSN")
-        # print(f"Connected to {self.user} {self.password} {self.dsn}")
+        # print(f"Connected to dsn {self.dsn}, user {self.user}")
         self.connection = None
 
     def connect(self):

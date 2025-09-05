@@ -14,6 +14,7 @@ class MyDenodoDB:
         self.host = os.getenv("DENODO_HOST")
         self.port = os.getenv("DENODO_PORT")
         self.dbname = os.getenv("DENODO_DBNAME")
+        # print(f"host {self.host}, port {self.port}, dbname {self.dbname}, user {self.user}")
         self.connection = None
     
     def connect(self):
