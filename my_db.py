@@ -8,6 +8,9 @@ load_dotenv()
 
 class MyOracleDB:
     def __init__(self):
+        """
+        This function sets initial attributes
+        """
         self.user = os.getenv("ORACLE_USER")
         self.password = os.getenv("ORACLE_PASSWORD")
         self.dsn = os.getenv("ORACLE_DSN")
@@ -15,6 +18,9 @@ class MyOracleDB:
         self.connection = None
 
     def connect(self):
+        """
+        This function opens a connection to your oracle database
+        """
         oracledb.init_oracle_client()
         try:
             self.connection = oracledb.connect(
@@ -27,12 +33,16 @@ class MyOracleDB:
             print(f"❌ Oracle connection failed: {error.message}")
             raise # Re-raise the exception if you want it to propagate
 
+    def query_to_df(self, sql: str, params=None) -> pd.DataFrame:
+        """
+        This function helps to retrieve data from an Oracle database
+        Args:
+            sql (str): this is a sql statement e.g. select column1 from table
+            params (_type_, optional): This parameter is optional. Only if you want to work with parameters. Defaults to None.
 
-    def close(self):
-        if self.connection:
-            self.connection.close()
-    
-    def query_to_df(self, sql, params=None):
+        Returns:
+            pd.DataFrame: It returns a pandas dataframe
+        """
         try:
             with self.connection.cursor() as cursor:
                 cursor.execute(sql, params or {})
@@ -44,3 +54,9 @@ class MyOracleDB:
             print(f"❌ SQL execution failed: {error.message}")
             return pd.DataFrame()  # Return empty DataFrame on failure
 
+    def close(self):
+        """
+        This function closes the connection to your oracle database
+        """
+        if self.connection:
+            self.connection.close()

@@ -9,6 +9,9 @@ load_dotenv()
 
 class MyDenodoDB:
     def __init__(self):
+        """
+        This function sets initial attributes
+        """
         self.user = os.getenv("DENODO_USER")
         self.password = os.getenv("DENODO_PASSWORD")
         self.host = os.getenv("DENODO_HOST")
@@ -18,6 +21,9 @@ class MyDenodoDB:
         self.connection = None
     
     def connect(self):
+        """
+        This function opens a connection to your Postgresql database
+        """
         try:
             self.connection = psycopg.connect(
                 host=self.host,
@@ -38,18 +44,30 @@ class MyDenodoDB:
         except Exception as e:
             print("❌ Unexpected error:", e)
 
-    def close(self):
-        if self.connection:
-            self.connection.close()
-    
-    def query_to_df(self, sql, params=None):
+    def query_to_df(self, sql: str, params=None) -> pd.DataFrame:
+        """
+        This function helps to retrieve data from a PostgreSQL database
+        Args:
+            sql (str): this is a sql statement e.g. select column1 from table
+            params (_type_, optional): This parameter is optional. Only if you want to work with parameters. Defaults to None.
+
+        Returns:
+            pd.DataFrame: _description_
+        """
         try:
             with self.connection.cursor() as cursor:
                 cursor.execute(sql, params or {})
                 rows = cursor.fetchall()
                 columns = [desc[0] for desc in cursor.description]
                 return pd.DataFrame(rows, columns = columns)
-        except psycopg.DatabaseError as e:
-            error, = e.args
-            print(f"❌ SQL execution failed: {error.message}")
+        except psycopg.DatabaseError as error:
+            # error, = e.args
+            print(f"❌ SQL execution failed: {error}")
             return pd.DataFrame()
+
+    def close(self):
+        """
+        This function closes the connection to your Postgresql database
+        """
+        if self.connection:
+            self.connection.close()
