@@ -9,7 +9,7 @@ If you have never used VSCode, check the link under references on how to prepare
 bash install_extensions.sh
 ```
 # Prepare your Python environemnt (Python 3.12.6) (for other Python versions check reference link)
-1. Create your environment (only the first time you create the project). To create an environment called oenv, run:
+1. Create your environment (only the first time you create the project). To create an environment called .oenv, run:
 ```
 /opt/python/3.12.6/bin/python3.12 -m venv .oenv
 ```
@@ -17,7 +17,7 @@ bash install_extensions.sh
 ```
 source .oenv/bin/activate
 ```
- Make sure your env name appears at the start of the line in the terminal.
+ Make sure your env name appears at the start of the line in the terminal. ![icon](img_tuto/image-2.png)
 
 3. Update your pip (only the first time you create your environment)
 ```
@@ -31,15 +31,15 @@ pip install -r requirements.txt
 ```
 touch .env
 ```
-Alternatively, VSCode has an icon to create files at the top of the list of folders: ![icon](image.png) 
+Alternatively, VSCode has an icon to create files at the top of the list of folders: ![icon](img_tuto/image.png) 
 
 6. Run the following to save your username, password and DSN into the .env file. 
 
 🔴**Caution**: *Do not store your credentials in plain text or as part of your code (hardcoded).*
 
-Note: for SMRA, the DSN URL is SMRA.nss.scot.nhs.uk.
+Note: for SMRA, the DSN URL is something like SMRA.xxx.xxxx.xxx.xx
 You can find the DSN URL by connecting to the database on R and checking the SVC variable under Connections: 
-![dsn url](image-1.png)
+![dsn url](img_tuto/image-1.png)
 
 ```
 ORACLE_USER=your_user_name
@@ -55,7 +55,7 @@ chmod 600 .env
 python demo.py
 ```
 
-The script my_db.py contains a Python class that which facilitates the connection to Oracle and retrieves data in a pandas dataframe. Call my_oracle_object.query_to_df to get a pandas dataframe.
+The script my_db.py contains a Python class which facilitates the connection to Oracle and retrieves data in a pandas dataframe. Call my_oracle_object.query_to_df and set an sql statement in the sql argument to get a pandas dataframe.
 
 # References
 
